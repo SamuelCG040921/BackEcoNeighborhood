@@ -6,6 +6,7 @@ import register from './routes/register';
 import auth from './routes/auth';
 import createWasteReport from './routes/createWasteReport';
 import getAllHogares from './routes/getAllHogares';
+import createComplaint from './routes/createComplaint';
 
 const app = express();
 const server = http.createServer(app);
@@ -19,6 +20,7 @@ app.use('/register', register)
 app.use('/auth', auth)
 app.use('/createWasteReport', createWasteReport)
 app.use('/hogares', getAllHogares)
+app.use('/createComplaint', createComplaint)
 
 
 const PORT = process.env.PORT || 10101;
