@@ -5,6 +5,7 @@ import cors from 'cors';
 import register from './routes/register';
 import auth from './routes/auth';
 import createWasteReport from './routes/createWasteReport';
+import getAllHogares from './routes/getAllHogares';
 
 const app = express();
 const server = http.createServer(app);
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/register', register)
 app.use('/auth', auth)
 app.use('/createWasteReport', createWasteReport)
+app.use('/hogares', getAllHogares)
 
 
 const PORT = process.env.PORT || 10101;
