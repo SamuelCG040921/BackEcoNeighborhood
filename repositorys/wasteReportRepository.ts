@@ -33,6 +33,21 @@ class WasteReportRepository{
             throw error;
         }
     }
+
+    static async updateHogarPoints() {
+        const sql = 'CALL actualizarPuntuacionHogares()';
+    
+        try {
+          const [result]: any = await db.execute(sql);
+          return result;
+        } catch (error) {
+          console.error(
+            'Error al llamar el procedimiento almacenado actualizarPuntuacionHogares',
+            error
+          );
+          throw error;
+        }
+      }
 }
 
 export default WasteReportRepository;

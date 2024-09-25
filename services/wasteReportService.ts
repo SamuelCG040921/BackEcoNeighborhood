@@ -13,6 +13,7 @@ class WasteReportService{
 
         await WasteReportRepository.createWasteReport(wasteReport);
         await WasteReportRepository.updateUserPoints(wasteReport.id_usuario, wasteReport.puntaje_reporte);
+        await WasteReportRepository.updateHogarPoints();
     }
 }
 
