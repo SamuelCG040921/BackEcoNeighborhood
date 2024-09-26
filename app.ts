@@ -25,6 +25,7 @@ app.use('/hogares', getAllHogares)
 app.use('/createComplaint', createComplaint)
 app.use('/user', getUserData)
 app.use('/complaints', getComplaints)
+app.use('/createBadReport', createBadReport)
 
 
 const PORT = process.env.PORT || 10101;
