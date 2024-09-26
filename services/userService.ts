@@ -4,6 +4,7 @@ import UserRegister from '../Dto/userRegisterDto';
 import generateHash from '../helpers/generateHash';
 import Auth from '../Dto/authDto';
 
+
 class UserService{
 
     static async register(user: UserRegister){
@@ -38,6 +39,21 @@ class UserService{
             throw new Error("Authentication failed");
         }
         }
+
+        static async getUserById(id: number){
+            try {
+                const result = await UserRepository.getUserById(id);
+                if(result){
+                    return result
+                }else{
+                    throw new Error("usuario no encontrado")
+                }
+            } catch (error) {
+                console.error("Error al obtener el usuario por id: ", error);
+                throw error
+            }
+        }
+       
  }
     
 

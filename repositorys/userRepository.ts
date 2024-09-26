@@ -41,6 +41,29 @@ class UserRepository{
         }
     }    
 
+   static async getUserById(id: number){
+    const sql = 'CALL getUsuarioById(?)';
+    const values = [id];
+
+    try {
+        const [rows]: any = await db.execute(sql, values);
+        const user = rows[0];
+
+        if(user && user.length > 0){
+            return {
+                id_hogar : user[0].id_hogar,
+                nombre: user[0].nombre,
+                puntuacion_usuario: user[0].puntuacion_usuario,
+                email: user[0].email
+            };
+        }else{
+            throw new Error('Usuario no encontrado.');
+        }
+    } catch (error) {
+        console.error("Error al llamar al procedimiento almacenado getUsuarioById:", error);
+        throw error;
+    }
+   }
 }
 
 export default UserRepository;
